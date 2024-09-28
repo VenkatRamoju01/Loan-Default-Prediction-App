@@ -2,7 +2,7 @@ numpy
 pandas
 matplotlib
 seaborn
-
+pickle
 streamlit
 scikit-learn
 imbalanced-learn
