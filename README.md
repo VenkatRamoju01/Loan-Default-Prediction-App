@@ -6,13 +6,7 @@ This Streamlit application predicts the likelihood of a loan applicant defaultin
 - [Overview](#overview)
 - [Technologies Used](#technologies-used)
 - [Machine Learning Model](#machine-learning-model)
-- [How It Works](#how-it-works)
-- [Data Preprocessing](#data-preprocessing)
-- [Installation and Setup](#installation-and-setup)
-- [Usage](#usage)
-- [Files Included](#files-included)
-- [Contributing](#contributing)
-- [License](#license)
+- [Model Construction and Prediction](#model-construction-and-prediction)
 
 ## Overview
 
@@ -32,35 +26,30 @@ The primary goal of this app is to assess the risk associated with loan applicat
 
 ## Machine Learning Model
 
-The app utilizes a **Random Forest Classifier**, which is an ensemble method that builds multiple decision trees and merges them to obtain a more accurate and stable prediction. 
+The app utilizes a **Random Forest Classifier**, an ensemble method that builds multiple decision trees and merges them to obtain a more accurate and stable prediction. 
 
-### Model Training Process
-1. **Data Collection**: A sample of loan data is read from a CSV file.
-2. **Data Preprocessing**: The features and target variable are separated, and categorical columns are one-hot encoded.
-3. **Train-Test Split**: The dataset is divided into training and testing sets using an 80-20 split.
-4. **Scaling**: The features are standardized using a pre-trained scaler to ensure they are on the same scale.
-5. **Handling Class Imbalance**: SMOTE (Synthetic Minority Over-sampling Technique) is applied to balance the classes in the training set.
-6. **Model Training**: The model is trained on the processed training data.
+### Data Preprocessing
 
-## How It Works
+Before constructing the model, the data is preprocessed to ensure it is clean and relevant. The dataset is sampled, features are selected, and categorical columns are one-hot encoded.
 
-1. The user inputs applicant details such as age, income, loan amount, credit score, and employment history.
-2. The app calculates the Debt-to-Income (DTI) ratio to assess the applicant's financial health.
-3. Upon clicking the "Check Loan Eligibility" button, the app processes the input data and uses the trained Random Forest model to predict the risk of loan default.
-4. The result is displayed to the user, indicating whether to proceed with or deny the loan application.
+## Model Construction and Prediction
 
-## Data Preprocessing
+After data preprocessing, the following steps were taken to construct the model and make predictions:
 
-The dataset is preprocessed to ensure the model is trained on clean and relevant data:
-- A subset of 3000 records is randomly sampled from the original dataset.
-- Features such as age, income, loan amount, and credit score are selected for model training.
-- Categorical features are transformed using one-hot encoding to convert them into numerical representations.
+1. **Train-Test Split**: The dataset was divided into training and testing sets using an 80-20 split to ensure that the model is evaluated on unseen data.
 
-## Installation and Setup
+2. **Feature Scaling**: The features were standardized using a pre-trained scaler (saved as `scaler.pkl`) to ensure that all input features are on the same scale, improving model performance.
 
-To run this application locally, follow these steps:
+3. **Handling Class Imbalance**: To address class imbalance, SMOTE (Synthetic Minority Over-sampling Technique) was applied to the training set. This technique generates synthetic examples to balance the distribution of classes, ensuring that the model learns from an equal number of positive and negative instances.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/loan-default-prediction.git
-   cd loan-default-prediction
+4. **Model Training**: The Random Forest model was trained on the preprocessed training data. The trained model was then saved using Pickle to allow for quick loading and reuse in the application.
+
+5. **Running the Model**: When the user inputs applicant details into the Streamlit app and clicks "Check Loan Eligibility":
+   - The input data is transformed and scaled using the previously saved scaler.
+   - The model is loaded from the saved `random_forest_model_pickle.pkl` file.
+   - The model predicts the risk of loan default based on the scaled input data.
+   
+6. **Output Results**: The prediction result is displayed to the user, indicating whether the applicant is likely to default on the loan or if they should proceed with the loan sanctioning.
+
+### Notes
+- **The model is trained on historical loan data from the USA. It aims to convert Indian salaries and loan amounts to USD based on Purchasing Power Parity (PPP) to provide more accurate predictions. However, users should consider the context and limitations of the model's training data when making lending decisions.**
