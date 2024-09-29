@@ -41,6 +41,23 @@ X_encoded= X[['Age', 'Income', 'LoanAmount', 'CreditScore',
 # Split data into train and test sets
 X_train,X_test,y_train,y_test= train_test_split(X_encoded,y,stratify=y,test_size=0.2,random_state=42)
 
+# THIS PART OF CODE IS FOR THE 1ST TIME WHEN YOU ARE TRAINING THE MODEL
+# # Initialize the scaler
+# scaler_model = StandardScaler()
+
+# # Fit the scaler to the training data
+# X_train_scaled = scaler_model.fit_transform(X_train)
+
+# # Transform the test data
+# X_test_scaled = scaler_model.transform(X_test)
+
+# # Save the scaler to a file using pickle
+# with open('scaler.pkl', 'wb') as f:
+#     pickle.dump(scaler_model, f)
+
+
+
+# THIS PART OF CODE IS FOR THE 2ND TIME WHEN YOU ARE USING PICKLE MODEL DIRECTLY
 # Load your previously saved scaler model
 scaler_model = pickle.load(open('scaler.pkl', 'rb'))
 
@@ -58,6 +75,19 @@ X_test_selected = X_test_scaled
 smote = SMOTE(random_state=42)
 X_train_resampled, y_train_resampled = smote.fit_resample(X_train_selected, y_train)
 
+# Step 4: Train the RandomForest Model and Save it for the 1st time
+# # Initialize the RandomForestClassifier
+# model = RandomForestClassifier(random_state=42)
+
+# # Train the model
+# model.fit(X_train_resampled, y_train_resampled)
+
+# # Save the trained model using pickle
+# with open('random_forest_model_pickle.pkl', 'wb') as f:
+#     pickle.dump(model, f)
+
+
+# THIS PART OF CODE IS FOR THE 2ND TIME WHEN YOU ARE USING PICKLE MODEL DIRECTLY
 # Load your trained model (you can save it using pickle)
 model = pickle.load(open('random_forest_model_pickle.pkl', 'rb'))
 
