@@ -97,6 +97,7 @@ st.title("Loan Risk Assessment")
 st.write("""Please enter the applicant's details to check if they are likely to default on their loan
 """)
 
+
 # Get user inputs
 age = st.number_input("Age [range:(18,100)]", min_value=18, max_value=100)
 income = st.number_input("Yearly income-INR (numeric only, eg: 2450000)]", min_value=0)
@@ -146,7 +147,8 @@ if st.button("Check Loan Eligibility"):
     # Output the result
     if risk[0] == 0:
         st.write("#### Please proceed with sanctioning the loan")
-        st.markdown("<small><i>The data used for training the model is based in the USA, so the results may not be accurate.</i></small>", unsafe_allow_html=True)
+        st.markdown("<small><b>Disclaimer:</b> <i>Only a small fraction of USA data (3,000 rows) was used to train the model, with some adjustments using PPP for Indian conditions. However, the training data is highly skewed, so the results may not accurately reflect Indian-specific details.</i></small>", unsafe_allow_html=True)
+
     else:
         st.write("#### Hey, the applicant is likely to default. Please do not sanction the loan")
-        st.markdown("<small><i>Note: The data used for training the model is based in the USA, so the results may not be accurate.</i></small>", unsafe_allow_html=True)
+        st.markdown("<small><b>Disclaimer:</b> <i>Only a small fraction of USA data (3,000 rows) was used to train the model, with some adjustments using PPP for Indian conditions. However, the training data is highly skewed, so the results may not accurately reflect Indian-specific details.</i></small>", unsafe_allow_html=True)
