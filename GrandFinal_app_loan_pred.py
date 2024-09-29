@@ -147,8 +147,8 @@ if st.button("Check Loan Eligibility"):
     # Output the result
     if risk[0] == 0:
         st.write("#### Please proceed with sanctioning the loan")
-        st.markdown("<small><b>Disclaimer:</b> <i>Only a small fraction of USA data (3,000 rows) was used to train the model, with some adjustments using PPP for Indian conditions. However, the training data is highly skewed, so the results may not accurately reflect Indian-specific details.</i></small>", unsafe_allow_html=True)
+        st.markdown("<small><b>Disclaimer:</b> <i>This model is for demonstration purposes only. It was trained using a small fraction of USA data (3,000 rows), with some adjustments using PPP for Indian conditions. However, the training data is highly skewed, so the results may not accurately reflect Indian-specific details.</i></small>", unsafe_allow_html=True)
 
     else:
         st.write("#### Hey, the applicant is likely to default. Please do not sanction the loan")
-        st.markdown("<small><b>Disclaimer:</b> <i>Only a small fraction of USA data (3,000 rows) was used to train the model, with some adjustments using PPP for Indian conditions. However, the training data is highly skewed, so the results may not accurately reflect Indian-specific details.</i></small>", unsafe_allow_html=True)
+        st.markdown("<small><b>Disclaimer:</b> <i>This model is for demonstration purposes only. It was trained using a small fraction of USA data (3,000 rows), with some adjustments using PPP for Indian conditions. However, the training data is highly skewed, so the results may not accurately reflect Indian-specific details.</i></small>", unsafe_allow_html=True)
