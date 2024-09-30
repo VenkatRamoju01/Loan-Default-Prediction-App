@@ -96,6 +96,8 @@ st.title("Loan Risk Assessment")
 
 st.write("""Please enter the applicant's details to check if they are likely to default on their loan
 """)
+st.markdown("<small><b>Note:</b> <i>Training and fine-tuning the model is still a work in progress </i></small>", unsafe_allow_html=True)
+
 
 
 # Get user inputs
