@@ -49,6 +49,6 @@ After data preprocessing, the following steps were taken to construct the model 
    
 6. **Output Results**: The prediction result is displayed to the user, indicating whether the applicant is likely to default on the loan or if they should proceed with the loan sanctioning.
 
-### Notes
-- **Disclaimer:</b> <i>This model is for demonstration purposes only. It was trained using a small fraction of USA data (3,000 rows), with some adjustments using PPP for Indian conditions. However, the training data is highly skewed, so the results may not accurately reflect Indian-specific details.**
+### Disclaimer:
+**This model is for demonstration purposes only. It was trained using a small fraction of USA data (3,000 rows), with some adjustments using PPP for Indian conditions. However, the training data is highly skewed, so the results may not accurately reflect Indian-specific details.**
 
