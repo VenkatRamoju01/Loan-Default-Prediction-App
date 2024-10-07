@@ -1,6 +1,4 @@
-# [Loan Default Prediction App](https://venkat-ramoju-loan-default-predictor.streamlit.app/)
-
-This [Streamlit application](https://venkat-ramoju-loan-default-predictor.streamlit.app/) predicts the likelihood of a loan applicant defaulting on their loan based on various financial and demographic factors. The model leverages historical loan data to provide insights that can assist lenders in making informed decisions.
+I have developed this [Streamlit application](https://venkat-ramoju-loan-default-predictor.streamlit.app/) which predicts the likelihood of a loan applicant defaulting on their loan based on various financial and demographic factors using random forest model. This model leverages historical loan data to provide insights that can assist lenders in making informed decisions.
 
 ## Table of Contents
 - [Overview](#overview)
